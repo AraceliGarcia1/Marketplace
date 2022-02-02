@@ -1,19 +1,31 @@
 package mx.edu.utez.Marketplace.category.controller;
 
-public class CategoryBTO {
+import mx.edu.utez.Marketplace.status.model.Status;
+
+public class CategoryDTO {
     private long id;
     private String descripcion;
-
-    public CategoryBTO() {
+    private Status status;
+    public CategoryDTO() {
     }
 
-    public CategoryBTO(String descripcion) {
+    public CategoryDTO(String descripcion, Status status) {
         this.descripcion = descripcion;
+        this.status = status;
     }
 
-    public CategoryBTO(long id, String descripcion) {
+    public CategoryDTO(long id, String descripcion, Status status) {
         this.id = id;
         this.descripcion = descripcion;
+        this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public long getId() {
@@ -31,4 +43,5 @@ public class CategoryBTO {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
 }

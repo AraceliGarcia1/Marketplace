@@ -20,14 +20,14 @@ public class CategoryController {
     public ResponseEntity<Message>getById(@PathVariable("id")long id){
         return categoryService.findById(id);
     }
-    @PostMapping("/save")
-    public ResponseEntity<Message>createCategory(@RequestBody CategoryBTO categoryBTO){
-        Category category= new Category(categoryBTO.getDescripcion());
+    @PostMapping("/")
+    public ResponseEntity<Message>createCategory(@RequestBody CategoryDTO categoryBTO){
+        Category category= new Category(categoryBTO.getDescripcion(),categoryBTO.getStatus());
         return categoryService.save(category);
     }
-    @PutMapping("/save")
-    public ResponseEntity<Message>updateCategory(@RequestBody CategoryBTO categoryBTO){
-        Category category= new Category(categoryBTO.getId(),categoryBTO.getDescripcion());
+    @PutMapping("/")
+    public ResponseEntity<Message>updateCategory(@RequestBody CategoryDTO categoryBTO){
+        Category category= new Category(categoryBTO.getId(),categoryBTO.getDescripcion(),categoryBTO.getStatus());
         return categoryService.save(category);
     }
 
